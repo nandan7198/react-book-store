@@ -7,7 +7,7 @@ function Products() {
       <header>
         <NavigationBar />
       </header>
-      <div>
+      <div className="">
         <SideBar />
       </div>
     </>

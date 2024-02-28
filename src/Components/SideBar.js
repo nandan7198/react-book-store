@@ -1,3 +1,7 @@
 export default function SideBar() {
-  return <div className="bg-grey min-w-40 min-h-screen"></div>;
+  return (
+    <div className="shadow bg-slate-100 w-1/4 min-h-[90vh]">
+      <div></div>
+    </div>
+  );
 }

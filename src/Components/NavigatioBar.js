@@ -10,11 +10,29 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import SchoolIcon from "@mui/icons-material/School";
+import { useNavigate } from "react-router-dom";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Products", "Dashboard"];
+
+function Logout({ navigate }) {
+  const handleLogout = () => {
+    sessionStorage.removeItem("isAuthenticated");
+    navigate("/");
+  };
+
+  return (
+    <Button
+      onClick={handleLogout}
+      sx={{ my: 2, color: "white", display: "block" }}
+    >
+      Logout
+    </Button>
+  );
+}
 
 function NavigationBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -22,6 +40,19 @@ function NavigationBar() {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const handleMenuItemClick = (page) => {
+    handleCloseNavMenu();
+    let route;
+    if (page.toLowerCase() === "products") {
+      route = "/home";
+    } else if (page.toLowerCase() === "dashboard") {
+      route = "/dashboard";
+    }
+    if (route) {
+      navigate(route);
+    }
   };
 
   return (
@@ -33,7 +64,6 @@ function NavigationBar() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -77,7 +107,7 @@ function NavigationBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => handleMenuItemClick(page)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -88,7 +118,7 @@ function NavigationBar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => handleMenuItemClick(page)}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page}
@@ -96,9 +126,7 @@ function NavigationBar() {
             ))}
           </Box>
 
-          <Button sx={{ my: 2, color: "white", display: "block" }}>
-            Logout
-          </Button>
+          <Logout navigate={navigate} />
         </Toolbar>
       </Container>
     </AppBar>
