@@ -10,9 +10,9 @@ import { useEffect } from "react";
 function App() {
   const [authenticated, setAuthenticated] = React.useState(false);
   const navigate = useNavigate();
-  const handleLogin = (username, password) => {
+  const handleLogin = (validated) => {
     // Perform authentication logic, e.g., check against hard-coded credentials
-    if (username === "admin" && password === "admin") {
+    if (validated) {
       setAuthenticated(true);
     }
   };
@@ -24,11 +24,11 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/signin" element={<SignIn onLogin={handleLogin} />} />
-      <Route path="/signup" element={<SignUp />} />
+      <Route path="/" element={<SignIn onLogin={handleLogin} />} />
+      <Route path="/signup" element={<SignUp onLogin={handleLogin} />} />
       <Route
         path="/home"
-        element={authenticated ? <Products /> : <Navigate to="/signin" />}
+        element={authenticated ? <Products /> : <Navigate to="/" />}
       />
     </Routes>
   );

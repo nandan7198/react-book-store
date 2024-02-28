@@ -1,9 +1,7 @@
-
+import NavigationBar from "./NavigatioBar";
 
 function Products() {
-    return(
-        <h1>Hello</h1>
-    );
+  return <NavigationBar />;
 }
 
 export default Products;
