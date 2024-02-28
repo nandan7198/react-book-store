@@ -24,7 +24,6 @@ function App() {
 
   return (
     <Routes>
-      <h1>Keerthan</h1>
       <Route path="/" element={<SignIn onLogin={handleLogin} />} />
       <Route path="/signup" element={<SignUp onLogin={handleLogin} />} />
       <Route
