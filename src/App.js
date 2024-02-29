@@ -5,6 +5,7 @@ import SignIn from "./Components/SignIn";
 import SignUp from "./Components/SignUp";
 import Products from "./Components/Products";
 import MyDashboard from "./Components/MyDashboard";
+import PageNotFound from "./Components/PageNotFound";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -38,6 +39,7 @@ function App() {
         path="/dashboard"
         element={authenticated ? <MyDashboard /> : <Navigate to="/" />}
       />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 }
