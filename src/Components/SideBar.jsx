@@ -1,7 +1,7 @@
-export default function SideBar() {
+export default function SideBar({ names, onProductClick }) {
   return (
     <>
-      <div className="relative flex flex-col bg-clip-border bg-slate-100 text-gray-700 h-[calc(100vh-2rem)] shadow w-full max-w-[20rem] p-4">
+      <div className="relative flex flex-col bg-clip-border bg-slate-100 text-gray-700 h-[100vh] shadow w-full max-w-[20rem] p-4">
         <div className="mb-2 p-4">
           <h5 className="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-gray-900 flex justify-center items-center">
             <svg
@@ -19,6 +19,17 @@ export default function SideBar() {
             </svg>
             Products
           </h5>
+          <div className="pt-6">
+            {names.map((name, index) => (
+              <div
+                className="pt-4 font-bold"
+                key={index}
+                onClick={() => onProductClick(name)}
+              >
+                {name}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>
