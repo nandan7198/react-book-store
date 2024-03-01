@@ -23,7 +23,7 @@ function App() {
     if (validated) {
       sessionStorage.setItem("isAuthenticated", true);
       setAuthenticated(true);
-      navigate("/home");
+      navigate("/products");
     }
   };
 
@@ -32,7 +32,7 @@ function App() {
       <Route path="/" element={<SignIn onLogin={handleLogin} />} />
       <Route path="/signup" element={<SignUp onLogin={handleLogin} />} />
       <Route
-        path="/home"
+        path="/products"
         element={authenticated ? <Products /> : <Navigate to="/" />}
       />
       <Route
