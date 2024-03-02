@@ -18,15 +18,19 @@ function Products() {
     return item;
   }
 
+  const handleProductNavClick = (productName) => {
+    setSelectedProduct(productName);
+  };
+
   const cardNames = cardsData.map((card) => card.name);
   return (
     <>
-      <NavigationBar />
+      <NavigationBar onHomeClick={handleProductNavClick} />
       <div className="flex">
         <div className="w-1/5">
           <SideBar names={cardNames} onProductClick={handleProductClick} />
         </div>
-        <div className="w-4/5 p-3">
+        <div className="w-4/5 p-3 bg-gradient-to-r from-[#0B2447] from-20% via-[#19376D] via-60% to-[#0B2447] to-80%">
           {selectedProduct ? (
             <ProductInfoCard product={getItemDetailsByName(selectedProduct)} />
           ) : (
@@ -38,7 +42,7 @@ function Products() {
                   name={card.name}
                   price={card.price}
                   ratings={card.ratings}
-                  link={card.link}
+                  onProductClick={handleProductClick}
                 />
               ))}
             </div>

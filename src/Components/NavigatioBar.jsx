@@ -20,7 +20,7 @@ function Logout(navigate) {
   navigate("/");
 }
 
-function NavigationBar() {
+function NavigationBar({ onHomeClick }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const navigate = useNavigate();
 
@@ -37,6 +37,9 @@ function NavigationBar() {
     let route;
     if (page.toLowerCase() === "products") {
       route = "/products";
+      if (onHomeClick) {
+        onHomeClick(null);
+      }
     } else if (page.toLowerCase() === "dashboard") {
       route = "/dashboard";
     }
@@ -59,7 +62,7 @@ function NavigationBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" color="primary" enableColorOnDark>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <SchoolIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -145,7 +148,7 @@ function NavigationBar() {
               <Button
                 key={page}
                 onClick={() => handleMenuItemClick(page)}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "inherit", display: "block" }}
                 className="focus:outline-none"
               >
                 {page}
@@ -168,6 +171,7 @@ function NavigationBar() {
               anchorEl={anchorEl}
               open={open}
               onClose={handleClose}
+              color="inherit"
               MenuListProps={{
                 "aria-labelledby": "basic-button",
               }}

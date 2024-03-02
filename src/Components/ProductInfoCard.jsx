@@ -9,7 +9,7 @@ export default function ProductInfoCard(props) {
 
   return (
     <div className="mx-auto">
-      <div className="flex bg-slate-100 shadow-md rounded-lg min-w-[70vw]">
+      <div className="flex bg-blue-950 shadow-md rounded-lg min-w-[70vw]">
         <div className="p-8 w-full min-w-36">
           <a href={props.product.link}>
             <img
@@ -21,7 +21,7 @@ export default function ProductInfoCard(props) {
         </div>
         <div className="flex flex-col px-5 pb-5 pt-10">
           <a href={props.product.link}>
-            <h3 className="text-gray-900 font-bold text-2xl tracking-tight">
+            <h3 className="text-sky-100 font-bold text-2xl tracking-tight">
               {props.product.name}
             </h3>
           </a>
@@ -43,7 +43,7 @@ export default function ProductInfoCard(props) {
                 )}
               </React.Fragment>
             )}
-            <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ml-3">
+            <span className="bg-blue-600 text-sky-100 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ml-3">
               {props.product.ratings}
             </span>
           </div>
@@ -52,7 +52,9 @@ export default function ProductInfoCard(props) {
               <div
                 className={`overflow-hidden ${isExpanded ? "h-auto" : "h-24"}`}
               >
-                {props.product.description}
+                <span className="text-sky-100">
+                  {props.product.description}
+                </span>
               </div>
               {!isExpanded ? "..." : ""}
               {isExpanded && (
@@ -66,7 +68,7 @@ export default function ProductInfoCard(props) {
                 </button>
               )}
             </div>
-            <span className="text-3xl font-bold text-gray-900 mt-3 mb-3">
+            <span className="text-3xl font-bold text-sky-100 mt-3 mb-3">
               ${props.product.price}
             </span>
             <a
