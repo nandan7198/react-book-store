@@ -1,8 +1,8 @@
 export default function SideBar({ names, onProductClick }) {
   return (
     <>
-      <div className="relative flex flex-col bg-clip-border text-gray-700 h-[100vh] shadow w-full max-w-[20rem] p-4  bg-gradient-to-r from-cyan-950 to-blue-950">
-        <div className="mb-2 p-4">
+      <div className="relative flex flex-col bg-clip-border text-gray-700 h-full p-3 shadow w-full max-w-[20rem]  bg-gradient-to-r from-cyan-950 to-blue-950">
+        <div className="mb-2">
           <h5
             onClick={() => onProductClick(null)}
             className="block cursor-pointer antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-sky-100 flex justify-center items-center"
@@ -22,11 +22,11 @@ export default function SideBar({ names, onProductClick }) {
             </svg>
             Products
           </h5>
-          <div className="pt-6">
+          <div className="pt-6 flex flex-col justify-center">
             {names.map((name, index) => (
-              <div className="mt-8" key={index}>
+              <div className="mt-10" key={index}>
                 <button
-                  className="relative inline cursor-pointer text-sky-50 text-xl font-medium focus:outline-none before:bg-violet-600  before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
+                  className="relative inline cursor-pointer text-sky-50 lg:text-xl sm:text-sm font-medium focus:outline-none before:bg-violet-600  before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
                   onClick={() => onProductClick(name)}
                 >
                   {name}

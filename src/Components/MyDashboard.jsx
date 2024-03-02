@@ -1,12 +1,9 @@
 import NavigationBar from "./NavigatioBar";
 import Footer from "./Footer";
-import cardsData from "./cardsData";
 import { BarChart } from "@mui/x-charts";
 import { PieChart } from "@mui/x-charts";
 
 export default function MyDashboard() {
-  const totalProducts = cardsData.length;
-  console.log(totalProducts);
   return (
     <>
       <NavigationBar />
