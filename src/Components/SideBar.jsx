@@ -24,10 +24,9 @@ export default function SideBar({ names, onProductClick }) {
           </h5>
           <div className="pt-6">
             {names.map((name, index) => (
-              <div className="mt-8">
+              <div className="mt-8" key={index}>
                 <button
                   className="relative inline cursor-pointer text-sky-50 text-xl font-medium focus:outline-none before:bg-violet-600  before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
-                  key={index}
                   onClick={() => onProductClick(name)}
                 >
                   {name}

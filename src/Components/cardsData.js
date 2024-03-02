@@ -6,7 +6,7 @@ const cardsData = [
 
     The book is designed to give a fillip to the concepts of java programming. Java programming has been variously conceptualized by experts across the world. The subject forms the basis for software development. Therefore, understanding the nuances of the subject occupy significance for students of Information Technology. Various books have approached the subject in their own ways. This book proposes to be an integration of the theoretical aspects of java programming complemented with the implementation of the same in real world situations. The book would be all encompassing covering the myriad aspects of the subject passing through the latest developments in the same covering the syllabus of institutions all over the country.`,
     price: "5",
-    ratings: "4",
+    ratings: 4,
     link: "#",
   },
   {
@@ -22,7 +22,7 @@ const cardsData = [
     
     Why wait any longer? Start your engine and code!`,
     price: "6",
-    ratings: "3",
+    ratings: 3,
     link: "#",
   },
   {
@@ -42,7 +42,7 @@ const cardsData = [
     Use a routing solution for single-page application features
     Learn how to structure React applications with servers in mind`,
     price: "8",
-    ratings: "5",
+    ratings: 5,
     link: "#",
   },
 ];
