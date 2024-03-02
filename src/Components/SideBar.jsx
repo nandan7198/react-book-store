@@ -3,7 +3,10 @@ export default function SideBar({ names, onProductClick }) {
     <>
       <div className="relative flex flex-col bg-clip-border bg-slate-100 text-gray-700 h-[100vh] shadow w-full max-w-[20rem] p-4">
         <div className="mb-2 p-4">
-          <h5 className="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-gray-900 flex justify-center items-center">
+          <h5
+            onClick={() => onProductClick(null)}
+            className="block cursor-pointer antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-gray-900 flex justify-center items-center"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -21,12 +24,14 @@ export default function SideBar({ names, onProductClick }) {
           </h5>
           <div className="pt-6">
             {names.map((name, index) => (
-              <div
-                className="pt-4 font-bold"
-                key={index}
-                onClick={() => onProductClick(name)}
-              >
-                {name}
+              <div className="mt-8">
+                <button
+                  className="relative inline cursor-pointer text-xl font-medium focus:outline-none before:bg-violet-600  before:absolute before:-bottom-1 before:block before:h-[2px] before:w-full before:origin-bottom-right before:scale-x-0 before:transition before:duration-300 before:ease-in-out hover:before:origin-bottom-left hover:before:scale-x-100"
+                  key={index}
+                  onClick={() => onProductClick(name)}
+                >
+                  {name}
+                </button>
               </div>
             ))}
           </div>

@@ -2,7 +2,7 @@ import React from "react";
 export default function MyCard(props) {
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="bg-white shadow-md rounded-lg max-w-sm">
+      <div className="bg-slate-100 shadow-md rounded-lg max-w-sm">
         <a href={props.link}>
           <img className="rounded-t-lg p-8" src={props.image} alt="Product" />
         </a>

@@ -107,7 +107,11 @@ function NavigationBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={() => handleMenuItemClick(page)}>
+                <MenuItem
+                  key={page}
+                  onClick={() => handleMenuItemClick(page)}
+                  className="focus:outline-none"
+                >
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -139,6 +143,7 @@ function NavigationBar() {
                 key={page}
                 onClick={() => handleMenuItemClick(page)}
                 sx={{ my: 2, color: "white", display: "block" }}
+                className="focus:outline-none"
               >
                 {page}
               </Button>

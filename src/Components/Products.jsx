@@ -23,17 +23,17 @@ function Products() {
     <>
       <NavigationBar />
       <div className="flex">
-        <div className="w-1/4">
+        <div className="w-1/5">
           <SideBar names={cardNames} onProductClick={handleProductClick} />
         </div>
-        <div className="w-3/4">
+        <div className="w-4/5 p-3">
           {selectedProduct ? (
             <ProductInfoCard product={getItemDetailsByName(selectedProduct)} />
           ) : (
             <div className="pt-3 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
               {cardsData.map((card, index) => (
                 <MyCard
-                  key={index} // Add a unique key for each card
+                  key={index}
                   image={card.image}
                   name={card.name}
                   price={card.price}

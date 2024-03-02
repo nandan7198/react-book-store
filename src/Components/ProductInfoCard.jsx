@@ -8,15 +8,17 @@ export default function ProductInfoCard(props) {
   };
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="mx-auto">
       <div className="flex bg-slate-100 shadow-md rounded-lg min-w-[70vw]">
-        <a href={props.product.link}>
-          <img
-            className="rounded-t-lg p-8 max-w-[30vw]"
-            src={props.product.image}
-            alt="Product"
-          />
-        </a>
+        <div className="p-8 w-full min-w-36">
+          <a href={props.product.link}>
+            <img
+              className="object-contain transform transition-transform hover:scale-110"
+              src={props.product.image}
+              alt="Product"
+            />
+          </a>
+        </div>
         <div className="flex flex-col px-5 pb-5 pt-10">
           <a href={props.product.link}>
             <h3 className="text-gray-900 font-bold text-2xl tracking-tight">
@@ -53,6 +55,11 @@ export default function ProductInfoCard(props) {
                 {props.product.description}
               </div>
               {!isExpanded ? "..." : ""}
+              {isExpanded && (
+                <button onClick={handleToggle} className="mt-2 text-blue-500">
+                  Read Less
+                </button>
+              )}
               {!isExpanded && (
                 <button onClick={handleToggle} className="mt-2 text-blue-500">
                   Read More
