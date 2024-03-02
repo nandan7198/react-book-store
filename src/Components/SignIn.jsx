@@ -80,6 +80,11 @@ export default function SignIn({ onLogin }) {
               name="email"
               autoComplete="email"
               autoFocus
+              sx={{
+                "& input:focus": {
+                  boxShadow: "none",
+                },
+              }}
             />
             <TextField
               error={validate}
@@ -91,6 +96,11 @@ export default function SignIn({ onLogin }) {
               type="password"
               id="password"
               autoComplete="current-password"
+              sx={{
+                "& input:focus": {
+                  boxShadow: "none",
+                },
+              }}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

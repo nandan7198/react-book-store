@@ -68,6 +68,11 @@ export default function SignUp({ onLogin }) {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  sx={{
+                    "& input:focus": {
+                      boxShadow: "none",
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -78,6 +83,11 @@ export default function SignUp({ onLogin }) {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  sx={{
+                    "& input:focus": {
+                      boxShadow: "none",
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -88,6 +98,11 @@ export default function SignUp({ onLogin }) {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  sx={{
+                    "& input:focus": {
+                      boxShadow: "none",
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -99,6 +114,11 @@ export default function SignUp({ onLogin }) {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  sx={{
+                    "& input:focus": {
+                      boxShadow: "none",
+                    },
+                  }}
                 />
               </Grid>
             </Grid>

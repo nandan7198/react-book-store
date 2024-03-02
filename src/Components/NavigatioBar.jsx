@@ -10,24 +10,14 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import SchoolIcon from "@mui/icons-material/School";
+import { Avatar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const pages = ["Products", "Dashboard"];
 
-function Logout({ navigate }) {
-  const handleLogout = () => {
-    sessionStorage.removeItem("isAuthenticated");
-    navigate("/");
-  };
-
-  return (
-    <Button
-      onClick={handleLogout}
-      sx={{ my: 2, color: "white", display: "block" }}
-    >
-      Logout
-    </Button>
-  );
+function Logout(navigate) {
+  sessionStorage.removeItem("isAuthenticated");
+  navigate("/");
 }
 
 function NavigationBar() {
@@ -53,6 +43,19 @@ function NavigationBar() {
     if (route) {
       navigate(route);
     }
+  };
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleLogOut = () => {
+    setAnchorEl(null);
+    Logout(navigate);
   };
 
   return (
@@ -149,8 +152,29 @@ function NavigationBar() {
               </Button>
             ))}
           </Box>
-
-          <Logout navigate={navigate} />
+          <div>
+            <Button
+              id="basic-button"
+              className="focus:outline-none"
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
+            >
+              <Avatar>A</Avatar>
+            </Button>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+              <MenuItem onClick={handleLogOut}>Logout</MenuItem>
+            </Menu>
+          </div>
         </Toolbar>
       </Container>
     </AppBar>
