@@ -1,6 +1,7 @@
 {
   "name": "react-task",
   "version": "0.1.0",
+  "homepage": "https://nandan7198.github.io/react-book-store",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -20,6 +21,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -43,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "tailwindcss": "^3.4.1"
   }
 }
